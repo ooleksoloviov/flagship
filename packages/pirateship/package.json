@@ -68,6 +68,7 @@
       "@brandingbrand/fscomponents",
       "@brandingbrand/fsproductindex",
       "@brandingbrand/fsproductdetail",
+      "@brandingbrand/fsnetwork",
       "react-native-sensitive-info",
       "react-native-safe-area",
       "react-native-svg",

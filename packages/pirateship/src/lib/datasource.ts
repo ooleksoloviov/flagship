@@ -22,13 +22,17 @@ export interface DataSourceConfig {
 }
 
 if (env.dataSource.type === 'bbplatform') {
-  dataSourceToExport = new BBPlatformDataSource(env.dataSource.apiConfig.apiHost);
+  dataSourceToExport = new BBPlatformDataSource(
+    env.dataSource.apiConfig.apiHost
+  );
 } else if (env.dataSource.type === 'commercecloud') {
   const config: any = env.dataSource.apiConfig;
   config.middleware = commerceCloudMiddleware;
 
   if (config.networkClient) {
-    config.networkClient = new FSNetwork(config.networkClient);
+    config.networkClient = new FSNetwork({
+      ...config.networkClient
+    });
   }
 
   dataSourceToExport = new CommerceCloudDataSource(config);
