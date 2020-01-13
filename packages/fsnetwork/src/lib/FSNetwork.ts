@@ -33,7 +33,6 @@ export class FSNetwork {
       if (appEnv && appEnv.pinnedCerts && appEnv.pinnedCerts.length) {
         pinnedCertificate = appEnv.pinnedCerts.filter(
           (item: any) => {
-            console.log('item: ', item);
             return config.baseURL && config.baseURL.includes(item.baseUrl);
           }
         );

@@ -15,11 +15,11 @@ export class SSLError implements AxiosError {
     data: ReactNativeSSLPinning.Response,
     config: AxiosRequestConfig
   ) {
-    this.code = data.status && data.status.toString() || 'no status';
+    this.code = status && status.toString() || '';
     this.config = config;
     this.response = new SSLResponse(data, config);
-    this.message = data.bodyString || '';
-    this.name = data.bodyString || '';
+    this.message = data.bodyString && JSON.parse(data.bodyString).message || '';
+    this.name = data.bodyString && JSON.parse(data.bodyString).name || '';
     this.stack = data.bodyString || '';
   }
 }
